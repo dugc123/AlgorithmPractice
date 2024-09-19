@@ -35,7 +35,8 @@ b.right = e;
  * @return {number}
  */
 var getMinimumDifference = function (root) {
-    let res = []
+    let res = [];
+    //中序遍历
     const buildArr = (root) => {
         if (!root) {
             return;
