@@ -24,7 +24,9 @@
  * @return {number[][]}
  */
 var reconstructQueue = function (people) {
-    let queue = []
+    let queue = [];
+
+    //先按照h排列，h相等的再按照k排列
     people.sort((a, b ) => {
         if(b[0] !== a[0]) {
             return b[0] - a[0]
