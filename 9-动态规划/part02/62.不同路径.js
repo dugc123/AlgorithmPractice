@@ -27,7 +27,7 @@ https://pic.leetcode.cn/1697422740-adxmsI-image.png
  * @return {number}
  */
 var uniquePaths = function (m, n) {
-    const dp = Array(m).fill().map(item => Array(n));
+    const dp = Array(m).fill(Array(n));
     for (let i = 0; i < m; i++) {
         dp[i][0] = 1;
     }
