@@ -17,15 +17,30 @@
 var findLength = function (nums1, nums2) {
     let len1 = nums1.length, len2 = nums2.length,res = 0;
     //dp[i][j] ：以下标i - 1为结尾的A，和以下标j - 1为结尾的B，最长重复子数组长度为dp[i][j]
-    let dp = Array(len1 + 1).fill(0).map(n => Array(len2 + 1).fill(0));
-    for (let i = 1; i <= len1; i++) {
-        for (let j = 1; j <= len2; j++) {
-            if (nums1[i - 1] === nums2[j - 1]) {
-                dp[i][j] = dp[i - 1][j - 1] + 1
+    // let dp = Array(len1 + 1).fill(0).map(n => Array(len2 + 1).fill(0));
+    // for (let i = 1; i <= len1; i++) {
+    //     for (let j = 1; j <= len2; j++) {
+    //         if (nums1[i - 1] === nums2[j - 1]) {
+    //             dp[i][j] = dp[i - 1][j - 1] + 1
+    //         }
+    //         res = Math.max(res, dp[i][j])
+    //     }
+    // }
+
+    let dp = Array(len1).fill(0).map(n => Array(len2).fill(0));
+    for (let i = 0; i < len1; i++) {
+        for (let j = 0; j < len2; j++) {
+            if (nums1[i] === nums2[j]) {
+                if (i === 0 || j === 0) {
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = dp[i - 1][j - 1] + 1
+                }
             }
             res = Math.max(res, dp[i][j])
         }
     }
+    console.log('dp',dp)
     return res;
 };
 let nums1 = [1, 2, 3, 2, 1], nums2 = [3, 2, 1, 4, 7];
