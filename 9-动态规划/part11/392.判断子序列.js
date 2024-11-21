@@ -31,6 +31,7 @@ var isSubsequence = function (s, t) {
 
     //动态规划
     let sLen = s.length, tLen = t.length;
+    //dp[i][j] 表示以下标i-1为结尾的字符串s，和以下标j-1为结尾的字符串t，相同子序列的长度为dp[i][j]。
     let dp = Array(sLen + 1).fill(0).map(ele => Array(tLen + 1).fill(0));
 
     for (let i = 1; i <= sLen; i++) {
@@ -38,6 +39,7 @@ var isSubsequence = function (s, t) {
             if (s[i - 1] === t[j - 1]) {
                 dp[i][j] = dp[i - 1][j - 1] + 1;
             } else {
+                //删除t中的元素
                 dp[i][j] = dp[i][j - 1];
             }
         }
