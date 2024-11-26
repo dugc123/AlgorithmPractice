@@ -17,5 +17,26 @@
  * @return {number}
  */
 var countSubstrings = function (s) {
-    
+    //dp表示下标范围[i + 1, j - 1],是否是回文。
+    let dp = Array(s.length).fill(false).map(ele => Array(s.length).fill(false));
+    let res = 0;
+    for (let i = s.length - 1; i >= 0; i--) {
+        for (let j = i; j < s.length; j++) {
+            if (s[i] === s[j]) {
+                if (j - i <= 2) {
+                    dp[i][j] = true;
+                    res++;
+                } else if (dp[i + 1][j - 1]) {
+                    res++;
+                    dp[i][j] = true;
+                }
+            } else {
+                dp[i][j] = false;
+            }
+        }
+    }
+    return res;
 };
+
+let s = "aaa";
+console.log('countSubstrings',countSubstrings(s))
