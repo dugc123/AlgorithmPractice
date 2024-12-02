@@ -31,7 +31,6 @@ var nextGreaterElements = function (nums) {
     // return res.slice(0, nums.length);
     let len = nums.length;
     for (let i = 0; i < len * 2; i++) {
-        console.log("i % len", i % len)
         while (stack.length && nums[i % len] > nums[stack[stack.length - 1]]) {
             let top = stack.pop();
             res[top] = nums[i % len];
