@@ -26,7 +26,5 @@ var reverseList = function (head) {
     return pre;
 };
 
-let arr = [1, 2, 3, 4, 5, null];
 let head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-console.log('head', head)
 console.log('reverse', reverseList(head));
