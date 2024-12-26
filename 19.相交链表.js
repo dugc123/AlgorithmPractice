@@ -6,6 +6,8 @@ class ListNode {
 }
 
 /**
+ * pA走到头后，跳到headB
+ * pB走到头后，跳到heaA
  * @param {ListNode} headA
  * @param {ListNode} headB
  * @return {ListNode}
