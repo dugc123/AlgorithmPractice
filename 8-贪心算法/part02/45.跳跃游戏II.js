@@ -16,10 +16,13 @@
  * @return {number}
  */
 var jump = function (nums) {
-    let curIndex = 0, nextIndex = 0, res = 0;
-    for (let i = 0; i < nums.length - 1; i++) {
+    let curIndex = 0, // 当前能达到的最远位置索引
+    nextIndex = 0, // 下一步能达到的最远位置索引
+    res = 0; // 跳跃次数
+    for (let i = 0; i < nums.length - 1; i++) { // 遍历数组，直到倒数第二个元素即可
+        // 更新下一步能达到的最远位置索引
         nextIndex = Math.max(nextIndex, i + nums[i]);
-        if (i === curIndex) {
+        if (i === curIndex) {// 当前能达到的最远位置索引到达当前位置，则跳跃一次
             res++;
             curIndex = nextIndex;
         }

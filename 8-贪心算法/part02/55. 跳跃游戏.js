@@ -21,10 +21,10 @@
  */
 var canJump = function (nums) {
     if (nums.length === 1) return true;
-    let cover = 0;
+    let cover = 0; // 覆盖范围
     for (let i = 0; i <= cover; i++) {
-        cover = Math.max(cover, i + nums[i]);
-        if (cover >= nums.length - 1) {
+        cover = Math.max(cover, i + nums[i]); // 更新覆盖范围
+        if (cover >= nums.length - 1) { // 如果覆盖范围已经超过最后一个位置，则返回true; 若没有，继续循环。
             return true;
         }
     }
